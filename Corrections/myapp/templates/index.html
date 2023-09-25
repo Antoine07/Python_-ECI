@@ -1,1 +1,9 @@
 <h1>Hello World</h1>
+
+{{ data }}
+
+<ul>
+    {% for d in data %}
+    <li>{{ d['a'] }}</li>
+    {% endfor %}
+</ul>

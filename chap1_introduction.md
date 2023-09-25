@@ -161,7 +161,15 @@ users = [
 
 ### 01 Exercice configuration
 
-Dans le dossier static, créez le fichier bootstrap.min.css, puis dans le fichier app.py, importez le module render_template. Créez les deux fichiers index.html et base.html :
+1. Affichez les données d'exemple dans la page index.html, en utilisant la route "/" (créez une nouvelle route)
+
+Pour le reload tapez la ligne de commande suivante :
+
+```python
+flask run --reload
+```
+
+2. Dans le dossier static, créez le fichier bootstrap.min.css, puis dans le fichier app.py, importez le module render_template. Créez les deux fichiers index.html et base.html :
 
 - les templates 
 
