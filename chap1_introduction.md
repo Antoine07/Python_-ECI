@@ -27,10 +27,10 @@ python -m venv myapp
 Dans un PowerShell, toujours dans le dossier myapp
 
 ```bash
-.\mon_env\Scripts\Activate
+.\myapp\Scripts\Activate
 ```
 
-Dans l'invite de commande 
+Résumé dans l'invite de commande 
 
 ```bash
 myapp\Scripts\activate
