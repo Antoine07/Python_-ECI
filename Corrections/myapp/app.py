@@ -49,3 +49,13 @@ def showUser(id):
     # print(user)
 
     return render_template('user.html', user = user)
+
+@app.route("/author/<author_id>")
+def showAuthor(author_id):
+    id = int(author_id) 
+    author = None 
+
+    if 0 <= id < len(authors_data):
+        author = authors_data[id]
+
+    return render_template('author.html', author = author )

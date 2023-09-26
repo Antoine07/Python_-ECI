@@ -420,26 +420,32 @@ def addUser():
         pass
 ```
 
-### 01 TP ajouter un user
+## 01 TP films
+
+**Par équipe de 2 personnes**.
+
+1. Développez maintenant une application avec deux pages une page home.html et une page picture.html, utilisez également un template base.html
+
+**Fonctionnalités**
+
+- GET /api/pictures: Obtenir la liste de tous les films.
+- GET /api/picture/<int:id>: Obtenir un film par ID.
+
+```python
+pictures = [
+    {"id": 0, "title": "Inception", "director": "Christopher Nolan"},
+    {"id": 1, "title": "The Shawshank Redemption", "director": "Frank Darabont"},
+    {"id": 2, "title": "Pulp Fiction", "director": "Quentin Tarantino"},
+    {"id": 3, "title": "The Godfather", "director": "Francis Ford Coppola"},
+    {"id": 4, "title": "The Dark Knight", "director": "Christopher Nolan"}
+]
+```
+2. (Facultatif ) Créez lien shuffle qui mélange la liste des films, pensez à faire une fonction en Python dans votre projet
+
+### 02 TP ajouter un user
 
 Créez une page permettant d'ajouter un utilisateur à notre dictionnaire.
 
 Utilisez la fonction flash de Flask pour vérifier l'existence d'un utilisateur, faites la gestion des erreurs.
 
 Aidez-vous de la documentation pour faire cela.
-
-## 02 TP 
-
-**Par équipe de 2 personnes**.
-
-Développez maintenant une API REST en ré-installant Flask
-
-**Fonctionnalités**
-
-- GET /api/users: Obtenir la liste de tous les utilisateurs.
-- GET /api/user/<int:id>: Obtenir un utilisateur par ID.
-- POST /api/user: Ajouter un nouvel utilisateur.
-- PUT /api/user/<int:id>: Mettre à jour un utilisateur par ID.
-- DELETE /api/user/<int:id>: Supprimer un utilisateur par ID.
-
-
