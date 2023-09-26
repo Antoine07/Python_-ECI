@@ -401,6 +401,10 @@ def user(id):
     return f"hello {id}" 
 ```
 
+### 04 Exercice affichez un auteur
+
+Refaire la même chose que l'exercice 03 pour les auteurs, affichez tous les informations si elles existent pour un auteur.
+
 ## Route POST 
 
 Pensez à importer le module request
