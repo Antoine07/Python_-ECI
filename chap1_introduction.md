@@ -354,6 +354,37 @@ Affichez les données users dans le dictionnaire **users** pour la route "/".
 
 ### 03 Exercice la bio de chaque user dans un nouveau fichier 
 
+Rappel 
+
+Pour définir une route dynamique on écrira :
+
+La syntaxe suivante permet de définir un paramètre dynamique 
+
+```python
+# <id> == paramètre dynamique user/191  ==> id sera égale à 191
+@app.route("/user/<id>")
+
+```
+
+Puis la fonction reprends le nom du paramètre pour récupérer la valeur
+
+```python
+@app.route("/user/<id>")
+def user(id):
+    return f"id : {id}"
+
+```
+
+Deuxième exemple
+
+```python
+@app.route("/user/<name>")
+def user(name):
+    return f"Name : {name}"
+
+```
+
+
 Utilisez une page spécifique pour afficher un utilisateur. 
 
 La route sera dynamique dans le template

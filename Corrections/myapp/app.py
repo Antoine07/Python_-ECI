@@ -38,3 +38,6 @@ def authors():
 Route dynamique testez une route dynamique pour afficher une valeur dans la page Web
 """ 
 
+@app.route("/user/<id>")
+def user(id):
+    return f"id : {id}"
