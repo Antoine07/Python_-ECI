@@ -32,3 +32,9 @@ Route pour afficher les auteurs : authors
 @app.route("/authors")
 def authors():
     return render_template('authors.html', authors=authors_data)
+
+
+"""
+Route dynamique testez une route dynamique pour afficher une valeur dans la page Web
+""" 
+

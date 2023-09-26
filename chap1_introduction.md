@@ -354,6 +354,8 @@ Affichez les données users dans le dictionnaire **users** pour la route "/".
 
 ### 03 Exercice la bio de chaque user dans un nouveau fichier 
 
+Utilisez une page spécifique pour afficher un utilisateur. 
+
 La route sera dynamique dans le template
 
 ```python
@@ -363,9 +365,10 @@ La route sera dynamique dans le template
 Dans le fichier app.py vous décorez une route dynamique avec la syntaxe suivante :
 
 ```python
+# id route dynamique avec une valeur 
 @app.route('/user/<id>')
 def user(id):
-    pass
+    return f"hello {id}" 
 ```
 
 ## Route POST 
