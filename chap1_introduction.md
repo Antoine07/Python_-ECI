@@ -1,19 +1,83 @@
 # Flask installation
 
-## Installation 
+## Rappels de la philosophie Python
+
+Pour connaitre l'ensemble des règles en Python pour bien programmer dans ce langage, tapez la ligne de commande suivante dans un shell Python :
+
+```bash
+import this 
+```
+
+Cette commande affichera les règles fondamentales suivantes :
+
+```txt
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+
+```
+
+Flask c'est un micro-framework. Il permet de faire des API et des application Web dynamiques.
+Il est moins utiliser que PHP avec Symfony ou Laravel (frameworks en PHP).
+
+## Installation et définition de fichier app.py
+
+Exemple de structure d'une mini-application en Flask avec ses données et ses vues
+
+```txt
+myapp
+├── Data
+│   ├── authors.py
+│   └── users.py
+├── app.py        <-- le point d'entrée avec les routes, il dispatch les routes en renvoyant une vue au navigateur
+|── templates
+   ├── base.html
+   └── index.html
+```
 
 Dans un premier temps créer un dossier myapp sur votre bureau et créez le fichier suivant :
 
-app.py
+app.py, permet d'écrire les routes de votre application, il se trouve à la racine de l'application.
 
 ```python
 from flask import Flask
 
-app = Flask(__name__)
+# une instance de l'application 
+app = Flask(__name__) 
 
+"""
+"/" : correspond à la route http://localhost:5000
+
+@app.route permet de définir une route 
+"""
 @app.route("/")
 def hello_world():
     return "<p>Hello, World!</p>"
+
+"""
+"/users" : correspond à la route http://localhost:5000/users
+"""
+@app.route("/users")
+def users():
+    return "<p>tous les utilisateurs</p>"
 ```
 
 ### Windows 
@@ -169,7 +233,54 @@ Pour le reload tapez la ligne de commande suivante :
 flask run --reload
 ```
 
-2. Dans le dossier static, créez le fichier bootstrap.min.css, puis dans le fichier app.py, importez le module render_template. Créez les deux fichiers index.html et base.html :
+**Indication** sur les ternaires, ils permettent d'afficher en ligne des valeurs de manière conditionnelle, pratique dans les templates :
+
+```python
+a = True
+'a est vrai' if a else 'a est faux'
+# a est vrai
+
+a = False
+'a est vrai' if a else 'a est faux'
+# a est faux
+```
+
+2. Créez une nouvelle route pour afficher l'ensemble des auteurs dans une nouvelle vue. 
+
+**Correction** 
+
+- On importe les données dans le fichier app.py 
+
+```python
+# Import relatif à un dossier et fichier
+from Data.authors import authors 
+```
+
+- Puis, on crée la route dans le fichier **app.py** avec la méthode **route** du **décorateur @app** 
+
+```python
+
+@app.route("/authors")
+def authors():
+    # premier paramètre le template, deuxième paramètre c'est les données passées à la vu
+    return render_template('authors.html', authors=authors)
+```
+
+- Il faut également créer le fichier authors.html dans le dossier templates
+
+```python
+<ul>
+    {% for author in authors %}
+    <li>{{ author['last_name'] }}</li>
+    <li>{{ author['first_name'] }}</li>
+    <li>{{ author['nationality'] }}</li>
+    <li>{{ author['famous_work'] }}</li>
+    {% endfor %}
+</ul>
+
+```
+
+3. Utilisez maintenant le template de base et faites en sorte que toutes vos vues soient étendues de ce fichier base.html
 
 - les templates 
 

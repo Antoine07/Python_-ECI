@@ -1,0 +1,8 @@
+<ul>
+    {% for author in authors %}
+    <li>{{ author['last_name'] }}</li>
+    <li>{{ author['first_name'] }}</li>
+    <li>{{ author['nationality'] }}</li>
+    <li>{{ author['famous_work'] }}</li>
+    {% endfor %}
+</ul>
