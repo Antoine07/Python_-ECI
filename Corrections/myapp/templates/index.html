@@ -16,6 +16,7 @@
         {% for user in users %}
         <tr>
             <th scope="row">{{ user['id'] }}</th>
+            {# user/<id> dynamique #}
             <td><a href="user/{{user['id']}}">{{ user['name'] }}</a></td>
             <td>{{ user['email'] }}</td>
             <td>{{ user['age'] if user['age'] else 'no age information'}}</td>
