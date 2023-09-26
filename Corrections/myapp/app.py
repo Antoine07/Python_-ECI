@@ -13,6 +13,7 @@ print(authors_data)
 
 app = Flask(__name__)
 
+# Exemple de route
 @app.route("/hello")
 def hello_world():
     return "<p>Hello, World!</p>"
