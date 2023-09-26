@@ -354,7 +354,7 @@ Affichez les données users dans le dictionnaire **users** pour la route "/".
 
 ### 03 Exercice la bio de chaque user dans un nouveau fichier 
 
-Rappel 
+**Rappel** 
 
 Pour définir une route dynamique on écrira :
 
@@ -375,7 +375,7 @@ def user(id):
 
 ```
 
-Deuxième exemple
+**Deuxième exemple**
 
 ```python
 @app.route("/user/<name>")
@@ -384,10 +384,9 @@ def user(name):
 
 ```
 
+Utilisez une page spécifique pour afficher le détail d'un utilisateur voir la clé bio :
 
-Utilisez une page spécifique pour afficher un utilisateur. 
-
-La route sera dynamique dans le template
+La route sera dynamique dans le template, écrivez le code suivant :
 
 ```python
 <a href="user/{{user['id']}}">{{ user['name'] }}</a>
