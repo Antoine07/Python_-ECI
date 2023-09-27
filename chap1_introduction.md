@@ -457,8 +457,10 @@ pictures = [
 
 ### 02 TP ajouter un user
 
-Créez une page permettant d'ajouter un utilisateur à notre dictionnaire.
+Par équipe de 2 
 
+1. Créez une page permettant d'ajouter un utilisateur à notre dictionnaire.
 Utilisez la fonction flash de Flask pour vérifier l'existence d'un utilisateur, faites la gestion des erreurs.
-
 Aidez-vous de la documentation pour faire cela.
+
+2. Essayez maintenant de faire la méthode DELETE, pour supprimer un utilisateur.
