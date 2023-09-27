@@ -405,7 +405,7 @@ def user(id):
 
 Refaire la même chose que l'exercice 03 pour les auteurs, affichez tous les informations si elles existent pour un auteur.
 
-## Route POST 
+## Route POST ( Exercice 05)
 
 Pensez à importer le module request
 
