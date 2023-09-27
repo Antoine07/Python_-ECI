@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for, flash
 
 # import directement depuis l'espace de nom data la liste users
 #from data import users
@@ -11,6 +11,15 @@ from Data.authors import authors as authors_data
 # print(users)
 # print(authors_data)
 
+def is_user_exist(email, users):
+    for user in users :
+        # est ce que est présent dans le dictionnaire utiliser .values pour tester sur les valeurs et pas les clés 
+        if email in user.values() :
+            return True
+    
+    # on l'a jamais trouvé donc on retourne faux 
+    return False
+
 app = Flask(__name__)
 
 # Exemple de route
@@ -21,7 +30,9 @@ def hello_world():
 """
 render_template permet de prendre un fichier html et de l'afficher (moteur de template)
 ce n'est la même chose que de renvoyer une chaine de caractères
+vous pouvez donner deux noms à votre route 
 """
+@app.route("/home")
 @app.route("/")
 def home():
     return render_template('index.html', users=users)
@@ -65,6 +76,16 @@ def showAuthor(author_id):
 @app.route('/add', methods=['GET', 'POST'])
 def addUser():
     if request.method == 'POST':
-        pass
+        email = request.form.get('email')
+        # on vérifie que l'utilisateur n'existe pas déjà dans la liste users
+        if is_user_exist(email, users):
+
+            return render_template('admin/add.html')
+        
+        # remarque request.form récupère toutes les valeurs du formulaire 
+        users.append(request.form)
+
+        return redirect(url_for('home'))
+        
     else:
         return render_template('admin/add.html')

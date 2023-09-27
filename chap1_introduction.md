@@ -465,3 +465,36 @@ Par équipe de 2
 Aidez-vous de la documentation pour faire cela.*
 
 2. Essayez maintenant de faire la méthode **DELETE**, pour supprimer un utilisateur ( dans les données users).
+
+Indications : pour la méthode POST, vous devez rediriger l'utilisateur vers une page spécifique après avoir ajouter un user à la liste des users. Dans ce cas considérer la syntaxe suivante 
+
+```python
+return redirect(url_for('home'))
+```
+
+N'oubliez pas d'importer les dépendances suivantes dans votre fichier app.py
+
+```python
+from flask import Flask, render_template, request, redirect, url_for
+```
+
+Indications : pour tester si une valeur existe dans un dictionnaire inspirez vous de l'exemple qui suit.
+
+```python
+user =  {
+         "id": 1,
+         "name": "Alice Smith",
+         "email": "alice@example.com",
+         "age": 28,
+         "bio": "Ingénieure logiciel avec une expertise en Python. Aime la randonnée."
+     }
+
+"email" in user
+# True
+
+"email" in user.values()
+# False
+
+"alice@example.com" in user.values()
+# True
+```
