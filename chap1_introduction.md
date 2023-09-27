@@ -407,7 +407,7 @@ Refaire la même chose que l'exercice 03 pour les auteurs, affichez tous les inf
 
 ## Route POST ( Exercice 05)
 
-Pensez à importer le module request
+Pensez à importer le module request de Flask.
 
 Nous allons voir comment maintenant traiter les routes POST ou GET, dans l'exemple qui suit vous avez les deux verbes possibles HTTP passés en paramètre de la méthode route :
 
@@ -420,11 +420,13 @@ def addUser():
         pass
 ```
 
-Indication pour récupérer en méthode POST les données vous utiliserez le code suivant, attention à bien importer le module request.
+Indication pour récupérer en méthode POST les données du formulaire, vous utiliserez le code suivant, vérifiez que votre formulaire est en mode POST.
 
 ```python
  email = request.form.get('email')
 ```
+
+Terminez cette mise en place en ajoutant un utilsateur user qui n'est pas déjà présent dans les données ( travaillez sur la liste users).
 
 ## 01 TP films
 
