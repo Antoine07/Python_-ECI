@@ -428,6 +428,8 @@ def addUser():
 
 **Fonctionnalités**
 
+Détails des urls
+
 - GET /api/pictures: Obtenir la liste de tous les films.
 - GET /api/picture/<int:id>: Obtenir un film par ID.
 
@@ -440,7 +442,10 @@ pictures = [
     {"id": 4, "title": "The Dark Knight", "director": "Christopher Nolan"}
 ]
 ```
-2. (Facultatif ) Créez lien shuffle qui mélange la liste des films, pensez à faire une fonction en Python dans votre projet
+
+2. (Facultatif) Créez un lien **shuffle** qui mélange la liste des films, pensez à faire une fonction en Python dans votre projet pour vous aider.
+
+- GET /api/shuffle/ Obtenir la liste des films à chaque présenter de manière aléatoire 
 
 ### 02 TP ajouter un user
 
