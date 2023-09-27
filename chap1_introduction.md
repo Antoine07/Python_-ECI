@@ -420,6 +420,12 @@ def addUser():
         pass
 ```
 
+Indication pour récupérer en méthode POST les données vous utiliserez le code suivant, attention à bien importer le module request.
+
+```python
+ email = request.form.get('email')
+```
+
 ## 01 TP films
 
 **Par équipe de 2 personnes**.

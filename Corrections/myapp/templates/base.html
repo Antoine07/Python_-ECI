@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %} - Flask</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    {% block css %}{% endblock %}
 </head>
 
 <body>
@@ -13,6 +14,7 @@
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/authors">Authors</a></li>
+            <li><a href="/add">Add user</a></li>
         </ul>
     </nav>
     <section class="content">

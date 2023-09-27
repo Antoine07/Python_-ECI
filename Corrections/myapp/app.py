@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 # import directement depuis l'espace de nom data la liste users
 #from data import users
@@ -59,3 +59,12 @@ def showAuthor(author_id):
         author = authors_data[id]
 
     return render_template('author.html', author = author )
+
+
+# Une méthode  get post (verbs HTTP) pour respectivement afficher et créer un user
+@app.route('/add', methods=['GET', 'POST'])
+def addUser():
+    if request.method == 'POST':
+        pass
+    else:
+        return render_template('admin/add.html')
