@@ -1,5 +1,15 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 
+# SQLAlchemy
+from sqlalchemy import create_engine, Column, Integer, String
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
+
+engine = create_engine('sqlite:///posts.db', echo=True)
+
+print(engine)
+
+
 # import directement depuis l'espace de nom data la liste users
 #from data import users
 
@@ -27,7 +37,7 @@ def is_user_exist(email, users):
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
 
-print(app.config)
+# print(app.config)
 
 # Exemple de route
 @app.route("/hello")

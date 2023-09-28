@@ -231,11 +231,11 @@ a = { x for x in zip( [1,1,1], [1,1,1] ) }
 # {(1, 1)}
 ```
 
-## 01 Exercice mississippi
+## 04 Exercice mississippi
 
 Soit la chaîne de caractères suivante : "mississippi". Comptez le nombre d'occurence de chaque lettre(s).
 
-## 02 Entiers inversés
+## 05 Entiers inversés
 
 Nous souhaitons créer une fonction qui permet d'inverser des entiers signés ou non :
 
@@ -247,43 +247,3 @@ Par exemples :
 
 Utilisez les notions du cours pour créer cette fonction. Notamment pensez à caster vos données afin de pouvoir les utiliser avec d'autre(s) fonction(s).
 
-
-## 03 Recherche d'un mot dans un texte
-
-Un problème récurrent en analyse de données consiste à rechercher une séquence de valeur dans un tableau.
-
-Ci-dessous on cherche la séquence   
-
-```python
-l = [1,3,7,8,9,1,2,3,8, 1, 2, 3, 7, 8, 9, 1, 2, 3, 8, 10, 1, 2, 3]
-```
-
-1. Créez une fonction qui permette de rechercher un mot dans un texte ou une liste, notez que cette fonction sera identique pour un texte, un itérable... Il serait intéressant que cette fonction retourne le premier indice de la position de la séquence trouvée dans la liste. 
-
-2. Retournez maintenant tous les indices de toutes les séquences trouvées dans la liste.
-
-
-## 04 Calculez la longueur moyenne
-
-1. Créez une fonction qui donne la longueur moyenne des mots et particules dans une phrase. Utilisez la fonction split sur une chaîne de caractères pour transformer la chaîne en tableau.
-
-Remarques pour retirer les caractères de ponctuation dans la phrase vous pouvez utiliser le code suivant basé sur les expressions régulières :
-
-```python
-import re
-s = "Hello World, . ; ?"
-# le troisième paramètre permet d'ignorer la case
-# dans des crochets cela signifie tout ce qui n'est pas un mot ou un espace sera remplacé par une chaîne de caractère vide
-s = re.sub(r"[^\w\se]", "", s, flags=re.IGNORECASE)
-```
-Une autre fonction Python peut également être utile, permettant de remplacer certain(s) caractère(s) par autre chose :
-
-```python
-"Bonjour 'tout' le monde".replace(r'"\'', "")
-```
-
-Extrait d'un article de Wikipédia (Python) :
-
-```python
-phrase = "Le langage Python est placé sous une licence libre proche de la licence BSD6 et fonctionne sur la plupart des plates-formes informatiques, des smartphones aux ordinateurs centraux, de Windows à Unix avec notamment GNU/Linux en passant par macOS, ou encore Android, iOS, et peut aussi être traduit en Java ou .NET. Il est conçu pour optimiser la productivité des programmeurs en offrant des outils de haut niveau et une syntaxe simple à utiliser."
-```
