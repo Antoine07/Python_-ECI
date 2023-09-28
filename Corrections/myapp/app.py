@@ -8,8 +8,12 @@ from Data.users import users
 # on fait un alias pour éviter la collision des noms des fonctions et des variables ( voir plus bas avec le nom de la fonction authors)
 from Data.authors import authors as authors_data
 
+# Variable de configuration
+from flask.config import Config
+
 # print(users)
 # print(authors_data)
+
 
 def is_user_exist(email, users):
     for user in users :
@@ -21,6 +25,9 @@ def is_user_exist(email, users):
     return False
 
 app = Flask(__name__)
+app.config.from_pyfile('config.py')
+
+print(app.config)
 
 # Exemple de route
 @app.route("/hello")
@@ -79,6 +86,8 @@ def addUser():
         email = request.form.get('email')
         # on vérifie que l'utilisateur n'existe pas déjà dans la liste users
         if is_user_exist(email, users):
+            # la fonction prend deux paramètres le premier c'est le message et le deuxième c'est la catégorie du message ici error
+            flash('user already exist', 'danger')
 
             return render_template('admin/add.html')
         

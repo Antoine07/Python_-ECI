@@ -1,0 +1,3 @@
+FLASK_ENV = 'development'
+SECRET_KEY = '263bde4c5d1e30b89533d23f6394d4efbd057f5aba09148fa41d8e1080c4aa82'
+DEBUG=True

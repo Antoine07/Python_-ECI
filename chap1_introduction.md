@@ -498,3 +498,54 @@ user =  {
 "alice@example.com" in user.values()
 # True
 ```
+
+## Flash message
+
+Les flash message nécessitent une secret KEY ( variable de session )
+
+Créez une secrète KEY avec la commmande Python suivante, la commande importe le module secret, puis on fait un print
+
+```python
+python -c 'import secrets; print(secrets.token_hex())' 
+```
+
+Créez un fichier config.py à la racine du prijet, puis définir les variables d'environnements ( ou de configuration de Flask ). 
+
+- config.py 
+
+```python
+SECRET_KEY = '263bde4c5d1e30b89533d23f6394d4efbd057f5aba09148fa41d8e1080c4aa82'
+```
+
+On importe le module Config de Flask et une fois votre instance app créée on charge le fichier config.py
+
+```python
+from flask.config import Config
+
+app = Flask(__name__)
+app.config.from_pyfile('config.py')
+```
+
+Pour créer des messages flash on utilise la fonction flash de Flash
+
+```python
+from flask import Flask, flash
+```
+
+Après vous avez à placer dans le fichier de vue le code pour afficher les messages flash ( des messages temporaires ), la fonction dans le template **get_flashed_messages(with_categories=true)**, va rechercher le message de flash la fonction.
+
+
+
+```html
+{% block flash_message %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<ul class="messages">
+    {% for category, message in messages %}
+    <li class="alert alert-{{ category }}">{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+{% endblock %}
+```
