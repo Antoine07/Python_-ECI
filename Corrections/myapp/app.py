@@ -39,9 +39,10 @@ db = SQLAlchemy(app)
 @app.route("/hello")
 def hello_world():
     posts = db.session.execute(db.select(Post) )
+   
     print(posts)
-    
-    return "<p>Hello, World!</p>"
+
+    return  render_template('test.html', posts = posts)
 
 """
 render_template permet de prendre un fichier html et de l'afficher (moteur de template)
@@ -110,23 +111,3 @@ def addUser():
     else:
         return render_template('admin/add.html')
 
-
-if __name__ == '__main__':
-    
-    with app.app_context():
-        db.create_all()
-
-        posts = [
-            {"id": 1, "title": "First Post", "content": "Content of the first post"},
-            {"id": 2, "title": "Second Post", "content": "Content of the second post"},
-            {"id": 3, "title": "Third Post", "content": "Content of the third post"},
-            # Add more posts as needed
-        ]
-
-        print(Post)
-
-        for p in posts :
-            newP= Post( title = p['title'] , content = p['content'])
-            print(newP)
-            db.session.add(newP)
-        # db.session.commit()
