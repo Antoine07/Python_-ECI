@@ -535,7 +535,6 @@ from flask import Flask, flash
 Après vous avez à placer dans le fichier de vue le code pour afficher les messages flash ( des messages temporaires ), la fonction dans le template **get_flashed_messages(with_categories=true)**, va rechercher le message de flash la fonction.
 
 
-
 ```html
 {% block flash_message %}
 {% with messages = get_flashed_messages(with_categories=true) %}
