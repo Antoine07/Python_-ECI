@@ -94,6 +94,8 @@ def addUser():
         # remarque request.form récupère toutes les valeurs du formulaire 
         users.append(request.form)
 
+        flash( f'success add user {request.form.get("name")}', 'success')
+
         return redirect(url_for('home'))
         
     else:

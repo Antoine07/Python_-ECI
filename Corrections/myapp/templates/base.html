@@ -18,11 +18,20 @@
         </ul>
     </nav>
     <section class="content">
-        {% block flash_message %}{% endblock %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <ul class="messages">
+            {% for category, message in messages %}
+            <li class="alert alert-{{ category }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
         <header>
             {% block header %}{% endblock %}
         </header>
         {% block content %}{% endblock %}
     </section>
 </body>
+
 </html>

@@ -4,17 +4,6 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='form.css') }}">
 {% endblock %}
 
-{% block flash_message %}
-{% with messages = get_flashed_messages(with_categories=true) %}
-{% if messages %}
-<ul class="messages">
-    {% for category, message in messages %}
-    <li class="alert alert-{{ category }}">{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
-{% endwith %}
-{% endblock %}
 
 {% block content %}
 <div class="centered-form">
