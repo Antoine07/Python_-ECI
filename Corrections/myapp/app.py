@@ -1,13 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 
 # SQLAlchemy
-from sqlalchemy import create_engine, Column, Integer, String
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
-
-engine = create_engine('sqlite:///posts.db', echo=True)
-
-print(engine)
+from flask_sqlalchemy import SQLAlchemy
 
 
 # import directement depuis l'espace de nom data la liste users
@@ -20,6 +14,7 @@ from Data.authors import authors as authors_data
 
 # Variable de configuration
 from flask.config import Config
+from Post import Post
 
 # print(users)
 # print(authors_data)
@@ -36,6 +31,7 @@ def is_user_exist(email, users):
 
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
+db = SQLAlchemy(app)
 
 # print(app.config)
 
@@ -110,3 +106,7 @@ def addUser():
         
     else:
         return render_template('admin/add.html')
+
+
+if __name__ == '__main__':
+    db.create_all()
