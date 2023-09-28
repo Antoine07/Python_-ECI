@@ -30,6 +30,10 @@ a = {}
 persons = { (1, 2, 3) : ["Alan", "Albert" ], (3,5,7) : ["Sophie"] }
 ```
 
+## 03 Exercice 
+
+Faite la somme des tuples, clés du dictionnaire ci-dessous, rappel un tuple est non mutable, car un dictionnaire ne peut avoir ses clés mutables (pensez à la clef de votre maison, pour retourver votre maison il n'y a qu'une clé qui marche).
+
 Un dictionnaire est un tableau de hash, ceci permet d'accéder à une valeur du dictionnaire en un temps constant et extrèmement rapide.
 
 De même vérifier qu'une clé existe est directe :
