@@ -284,10 +284,14 @@ for user in users:
 
 ```
 
-## 01 Exercice 
+## 01 Exercice boucle
 
 Paroucir et afficher les données à l'intérieur de liste de listes suivantes :
 
 ```python
 r = [[1, 2], [3, 4], [5, 6]]
 ```
+
+## 02 Exercice users
+
+importez les users dans un fichier app.py et affichez clairement le nom et l'age de chaque user.
