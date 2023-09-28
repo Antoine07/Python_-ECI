@@ -235,6 +235,8 @@ a = { x for x in zip( [1,1,1], [1,1,1] ) }
 
 Soit la chaîne de caractères suivante : "mississippi". Comptez le nombre d'occurence de chaque lettre(s).
 
+Indication : une chaine de caractères se parcourent comme une liste.
+
 ## 05 Entiers inversés
 
 Nous souhaitons créer une fonction qui permet d'inverser des entiers signés ou non :
@@ -245,5 +247,5 @@ Par exemples :
 
 123 donnerait 321
 
-Utilisez les notions du cours pour créer cette fonction. Notamment pensez à caster vos données afin de pouvoir les utiliser avec d'autre(s) fonction(s).
+Utilisez les notions du cours pour créer cette fonction. Notamment pensez à caster vos données afin de pouvoir les utiliser avec d'autre(s) fonction(s). (caster en chaine de caractères)
 
