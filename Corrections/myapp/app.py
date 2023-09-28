@@ -14,7 +14,7 @@ from Data.authors import authors as authors_data
 
 # Variable de configuration
 from flask.config import Config
-from Post import Post
+from Post import Post, db
 
 # print(users)
 # print(authors_data)
@@ -38,6 +38,9 @@ db = SQLAlchemy(app)
 # Exemple de route
 @app.route("/hello")
 def hello_world():
+    posts = db.session.execute(db.select(Post) )
+    print(posts)
+    
     return "<p>Hello, World!</p>"
 
 """
@@ -109,4 +112,21 @@ def addUser():
 
 
 if __name__ == '__main__':
-    db.create_all()
+    
+    with app.app_context():
+        db.create_all()
+
+        posts = [
+            {"id": 1, "title": "First Post", "content": "Content of the first post"},
+            {"id": 2, "title": "Second Post", "content": "Content of the second post"},
+            {"id": 3, "title": "Third Post", "content": "Content of the third post"},
+            # Add more posts as needed
+        ]
+
+        print(Post)
+
+        for p in posts :
+            newP= Post( title = p['title'] , content = p['content'])
+            print(newP)
+            db.session.add(newP)
+        # db.session.commit()
