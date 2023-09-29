@@ -1,6 +1,7 @@
-from flask import Flask, render_template
-from Post import  db, Post, app 
-from flask_sqlalchemy import SQLAlchemy
+from flask import render_template
+from Post import  Post
+# Configuration de votre application
+from Config import app, db 
 
 @app.route("/")
 def home():

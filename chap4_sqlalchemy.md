@@ -123,6 +123,40 @@ except:
         db.session.add(newP)
     
     db.session.commit()
+```
 
+Créez un fichier **Config.py** qui va définir l'instance de app et db qui seront partagées avec les autres fichiers app.py, Post.py ...
+
+```python
+from flask import Flask 
+from flask_sqlalchemy import SQLAlchemy
+
+# création de l'application une seule fois
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///post.db'
+app.app_context().push()
+
+db = SQLAlchemy(app)
+```
+
+Dans le fichier app.py vous devez récupérer l'app et db ainsi que Post ( le modèle ), cette dernière classe vous permettra de récupérer les données.
+
+```python
+from flask import Flask, render_template
+from Post import  Post
+
+@app.route("/")
+def home():
+    # ORM SQLAlchemy on demande tous les posts dans la table post de la base de données
+    # en passant par l'ORM
+    posts = db.session.query(Post).all()
+
+    return render_template('posts.html', posts = posts)
 
 ```
+
+## 01 Exercice Authors
+
+En reprenant l'exemple de ce matin.
+
+- Par équipe de 2 créez la page qui affichera l'ensemble des auteurs. Pensez à créer le fichier Author.py
